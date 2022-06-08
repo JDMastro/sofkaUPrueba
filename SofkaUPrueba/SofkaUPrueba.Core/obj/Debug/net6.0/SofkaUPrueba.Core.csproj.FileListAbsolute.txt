@@ -1,0 +1,12 @@
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\bin\Debug\net6.0\SofkaUPrueba.Core.deps.json
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\bin\Debug\net6.0\SofkaUPrueba.Core.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\bin\Debug\net6.0\SofkaUPrueba.Core.pdb
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\SofkaUPrueba.Core.csproj.AssemblyReference.cache
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\SofkaUPrueba.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\SofkaUPrueba.Core.AssemblyInfoInputs.cache
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\SofkaUPrueba.Core.AssemblyInfo.cs
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\SofkaUPrueba.Core.csproj.CoreCompileInputs.cache
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\SofkaUPrueba.Core.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\refint\SofkaUPrueba.Core.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\SofkaUPrueba.Core.pdb
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Core\obj\Debug\net6.0\ref\SofkaUPrueba.Core.dll

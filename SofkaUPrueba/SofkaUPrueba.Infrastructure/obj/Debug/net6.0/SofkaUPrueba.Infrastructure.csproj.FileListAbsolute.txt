@@ -1,0 +1,17 @@
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\bin\Debug\net6.0\SofkaUPrueba.Infrastructure.deps.json
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\bin\Debug\net6.0\SofkaUPrueba.Infrastructure.runtimeconfig.json
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\bin\Debug\net6.0\SofkaUPrueba.Infrastructure.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\bin\Debug\net6.0\SofkaUPrueba.Infrastructure.pdb
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\bin\Debug\net6.0\SofkaUPrueba.Core.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\bin\Debug\net6.0\SofkaUPrueba.Core.pdb
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.AssemblyInfo.cs
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.csproj.CopyComplete
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\refint\SofkaUPrueba.Infrastructure.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.pdb
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\SofkaUPrueba.Infrastructure.genruntimeconfig.cache
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Infrastructure\obj\Debug\net6.0\ref\SofkaUPrueba.Infrastructure.dll
