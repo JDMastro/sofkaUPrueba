@@ -18,7 +18,31 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Players", b =>
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Categories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Difficulty")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("GamesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GamesId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Games", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,13 +52,127 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("PlayersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayersId");
+
+                    b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Options", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Iscorrect")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("QuestionsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionsId");
+
+                    b.ToTable("Options");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Players", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("Username")
+                        .IsUnique()
+                        .HasDatabaseName("Idx_username_players");
+
                     b.ToTable("Players");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Questions", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriesId");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Categories", b =>
+                {
+                    b.HasOne("SofkaUPrueba.Core.Entities.Games", "Games")
+                        .WithMany()
+                        .HasForeignKey("GamesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Games");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Games", b =>
+                {
+                    b.HasOne("SofkaUPrueba.Core.Entities.Players", "Players")
+                        .WithMany()
+                        .HasForeignKey("PlayersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Players");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Options", b =>
+                {
+                    b.HasOne("SofkaUPrueba.Core.Entities.Questions", "Questions")
+                        .WithMany()
+                        .HasForeignKey("QuestionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Questions", b =>
+                {
+                    b.HasOne("SofkaUPrueba.Core.Entities.Categories", "Categories")
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }

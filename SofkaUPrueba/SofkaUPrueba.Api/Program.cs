@@ -1,4 +1,6 @@
+using SofkaUPrueba.Core.Interfaces;
 using SofkaUPrueba.Infrastructure;
+using SofkaUPrueba.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,17 @@ builder.Services.AddSwaggerGen();
 
 //INYECCIONES DE INFRASTRUCTURE
 builder.Services.AddInfrastructure(builder.Configuration);
+
+//REGISTRAR AUTOMAPPER
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//REGISTRAR INYECCIONES
+builder.Services.AddTransient<IPlayersRepository, PlayersRepository>();
+builder.Services.AddTransient<ICategoriesRepository, CategoriesRepository>();
+builder.Services.AddTransient<IGamesRepository, GamesRepository>();
+builder.Services.AddTransient<IOptionsRepository, OptionsRepository>();
+builder.Services.AddTransient<IQuestionsRepositorycs, QuestionsRepository>();
+
 
 var app = builder.Build();
 
