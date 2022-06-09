@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using SofkaUPrueba.Core.Interfaces;
 using SofkaUPrueba.Infrastructure;
 using SofkaUPrueba.Infrastructure.Repositories;
@@ -20,9 +21,15 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //REGISTRAR INYECCIONES
 builder.Services.AddTransient<IPlayersRepository, PlayersRepository>();
 builder.Services.AddTransient<ICategoriesRepository, CategoriesRepository>();
-builder.Services.AddTransient<IGamesRepository, GamesRepository>();
+//builder.Services.AddTransient<IGamesRepository, GamesRepository>();
 builder.Services.AddTransient<IOptionsRepository, OptionsRepository>();
 builder.Services.AddTransient<IQuestionsRepositorycs, QuestionsRepository>();
+
+//REGISTRAR VALIDATIONS
+builder.Services.AddFluentValidation(options =>
+{
+    options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+});
 
 
 var app = builder.Build();
