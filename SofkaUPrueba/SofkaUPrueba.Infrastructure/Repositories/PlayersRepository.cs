@@ -11,6 +11,17 @@ namespace SofkaUPrueba.Infrastructure.Repositories
 
         public PlayersRepository(AppDbContext context) => _entities = context;
 
+        public async Task AddPlayer(Players player)
+        {
+            _entities.Players.Add(player);
+            await _entities.SaveChangesAsync();
+        }
+
+        public async Task<Players> CheckUserNameOfPlayer(string username)
+        {
+            return await _entities.Players.FirstOrDefaultAsync(x => x.Username == username );
+        }
+
         public async Task<Players> Login(Players players)
         {
             return await _entities.Players.FirstOrDefaultAsync(x => 

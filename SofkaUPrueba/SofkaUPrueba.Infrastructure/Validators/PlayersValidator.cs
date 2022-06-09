@@ -3,16 +3,15 @@ using SofkaUPrueba.Core.DTOs;
 
 namespace SofkaUPrueba.Infrastructure.Validators
 {
-    internal class PlayersValidator : AbstractValidator<PlayersDto>
+    public class PlayersValidator : AbstractValidator<PlayersDto>
     {
         public PlayersValidator()
         {
             RuleFor(Player => Player.Username)
-                .NotEmpty()
-                .NotNull();
+                .Length(3, 10);
 
             RuleFor(Player => Player.Password)
-                .NotEmpty()
+                .Length(6, 10)
                 .NotNull();
         }
     }

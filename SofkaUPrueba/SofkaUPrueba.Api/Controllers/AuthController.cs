@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SofkaUPrueba.Api.Response;
+using SofkaUPrueba.Core.DTOs;
+using SofkaUPrueba.Core.Entities;
 using SofkaUPrueba.Core.Interfaces;
 
 namespace SofkaUPrueba.Api.Controllers
@@ -9,12 +12,22 @@ namespace SofkaUPrueba.Api.Controllers
     public class AuthController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IPlayersRepository _playersRepository;
+        private readonly IPlayersService _playersService;
 
-        public AuthController(IPlayersRepository PlayersRepository, IMapper mapper)
+        public AuthController(IPlayersService PlayersService, IMapper mapper)
         {
-            _playersRepository = PlayersRepository;
+            _playersService = PlayersService;
             _mapper = mapper;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPlayer(PlayersDto playersDto)
+        {
+            var player = _mapper.Map<Players>(playersDto);
+            await _playersService.AddPlayer(player);
+            playersDto = _mapper.Map<PlayersDto>(player);
+            var response = new ApiResponse<PlayersDto>(playersDto);
+            return Ok(response);
         }
 
     }

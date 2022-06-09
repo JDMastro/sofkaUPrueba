@@ -11,7 +11,6 @@ namespace SofkaUPrueba.Infrastructure.Persistence
 
         public DbSet<Players> Players { get; set; }
         public DbSet<Categories> Categories { get; set; }
-        //public DbSet<Games> Games { get; set; }
         public DbSet<Options> Options { get; set; }
         public DbSet<Questions> Questions { get; set; }
 
