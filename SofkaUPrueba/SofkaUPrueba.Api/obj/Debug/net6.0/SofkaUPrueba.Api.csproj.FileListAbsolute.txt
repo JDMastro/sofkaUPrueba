@@ -43,3 +43,10 @@ C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\obj\Debug\net6.0\refin
 C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\obj\Debug\net6.0\SofkaUPrueba.Api.pdb
 C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\obj\Debug\net6.0\SofkaUPrueba.Api.genruntimeconfig.cache
 C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\obj\Debug\net6.0\ref\SofkaUPrueba.Api.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jdmlm\source\repos\SofkaUPrueba\SofkaUPrueba.Api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

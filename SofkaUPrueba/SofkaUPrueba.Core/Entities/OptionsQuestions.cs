@@ -1,6 +1,6 @@
 ﻿namespace SofkaUPrueba.Core.Entities
 {
-    public class Options : BaseEntity
+    public class OptionsQuestions : BaseEntity
     {
         public string Name { get; set; }
         public bool Iscorrect { get; set; }

@@ -69,7 +69,7 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Options", b =>
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.OptionsQuestions", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1017,7 +1017,7 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Options", b =>
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.OptionsQuestions", b =>
                 {
                     b.HasOne("SofkaUPrueba.Core.Entities.Questions", "Questions")
                         .WithMany("Options")

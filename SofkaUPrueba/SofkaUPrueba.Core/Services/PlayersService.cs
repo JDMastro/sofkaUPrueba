@@ -9,6 +9,8 @@ namespace SofkaUPrueba.Core.Services
         private readonly IUnitOfWork _unitOfWork;
         public PlayersService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
+        public async Task<Players> Login(Players player) => await _unitOfWork.PlayersRepository.Login(player);
+
         public async Task AddPlayer(Players player)
         {
             var checkPlayer = await _unitOfWork.PlayersRepository.CheckUserNameOfPlayer(player.Username);

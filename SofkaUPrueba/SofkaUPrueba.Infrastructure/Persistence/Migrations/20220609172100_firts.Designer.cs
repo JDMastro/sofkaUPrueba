@@ -10,7 +10,7 @@ using SofkaUPrueba.Infrastructure.Persistence;
 namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220609033231_firts")]
+    [Migration("20220609172100_firts")]
     partial class firts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,7 +71,7 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Options", b =>
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.OptionsQuestions", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1019,7 +1019,7 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SofkaUPrueba.Core.Entities.Options", b =>
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.OptionsQuestions", b =>
                 {
                     b.HasOne("SofkaUPrueba.Core.Entities.Questions", "Questions")
                         .WithMany("Options")

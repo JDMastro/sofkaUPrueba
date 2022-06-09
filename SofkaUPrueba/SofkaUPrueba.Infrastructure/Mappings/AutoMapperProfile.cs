@@ -8,8 +8,12 @@ namespace SofkaUPrueba.Infrastructure.Mappings
     {
         public AutoMapperProfile()
         {
-            CreateMap<Players, PlayersDto>();
-            CreateMap<PlayersDto, Players>();
+            CreateMap<Players, PlayersDto>().ReverseMap();
+            CreateMap<Players, LoginDto>().ReverseMap();
+
+            // CreateMap<PlayersDto, Players>();
+
+
         }
     }
 }

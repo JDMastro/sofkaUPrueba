@@ -8,6 +8,6 @@
         public int CategoriesId { get; set; }
 
         public Categories Categories { get; set; }
-        public ICollection<Options> Options { get; set; }
+        public ICollection<OptionsQuestions> Options { get; set; }
     }
 }

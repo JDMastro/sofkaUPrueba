@@ -24,8 +24,7 @@ namespace SofkaUPrueba.Infrastructure.Repositories
         public async Task<Players> Login(Players players)
         {
             return await _entities.Players.FirstOrDefaultAsync(x => 
-                  x.Username == players.Username 
-                  && x.Password == players.Password );
+                  x.Username == players.Username);
         }
     }
 }
