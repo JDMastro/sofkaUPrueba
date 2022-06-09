@@ -23,5 +23,10 @@ namespace SofkaUPrueba.Core.Services
             }
 
         }
+
+        public async Task<Players> CheckMe(int id)
+        {
+            return await _unitOfWork.PlayersRepository.CheckMe(id);
+        }
     }
 }

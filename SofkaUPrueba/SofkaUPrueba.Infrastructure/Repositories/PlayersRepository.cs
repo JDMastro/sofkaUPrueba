@@ -16,6 +16,11 @@ namespace SofkaUPrueba.Infrastructure.Repositories
             await _entities.Players.AddAsync(player);
         }
 
+        public async Task<Players> CheckMe(int id)
+        {
+            return await _entities.Players.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public async Task<Players> CheckUserNameOfPlayer(string username)
         {
             return await _entities.Players.FirstOrDefaultAsync(x => x.Username == username );

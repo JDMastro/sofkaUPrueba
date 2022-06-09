@@ -14,6 +14,8 @@ using SofkaUPrueba.Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string Micors = "Micors";
+
 // Add services to the container.
 
 builder.Services.AddControllers(options => { options.Filters.Add<GlobalExceptionFilter>(); });
@@ -87,6 +89,11 @@ builder.Services.AddAuthentication(options =>
 
 });
 
+//CONFIGUANDO CORS
+builder.Services.AddCors(options => {
+    options.AddPolicy(name: Micors, builder => { builder.WithOrigins("*"); });
+});
+
 
 //REGISTRAR VALIDATIONS
 builder.Services.AddFluentValidation(
@@ -104,6 +111,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(Micors);
 
 app.UseAuthentication();
 

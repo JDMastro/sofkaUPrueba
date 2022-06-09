@@ -6,5 +6,6 @@ namespace SofkaUPrueba.Core.Interfaces
     {
         Task AddPlayer(Players player);
         Task<Players> Login(Players player);
+        Task<Players> CheckMe(int id);
     }
 }
