@@ -5,14 +5,14 @@ namespace SofkaUPrueba.Core.Services
 {
     public class PlayersService : IPlayersService
     {
-        private readonly IPlayersRepository _playersRepository;
-        public PlayersService(IPlayersRepository playersRepository) => _playersRepository = playersRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        public PlayersService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
         public async Task AddPlayer(Players player)
         {
-            var checkPlayer = await _playersRepository.CheckUserNameOfPlayer(player.Username);
+            var checkPlayer = await _unitOfWork.PlayersRepository.CheckUserNameOfPlayer(player.Username);
             if (checkPlayer == null)
-                await _playersRepository.AddPlayer(player);
+                await _unitOfWork.PlayersRepository.AddPlayer(player);
             else
                 throw new Exception("Username is already registered");
 

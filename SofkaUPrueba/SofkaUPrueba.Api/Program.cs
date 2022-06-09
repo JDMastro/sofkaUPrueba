@@ -24,7 +24,8 @@ builder.Services.AddTransient<IPlayersService, PlayersService>();
 builder.Services.AddTransient<IPlayersRepository, PlayersRepository>();
 builder.Services.AddTransient<ICategoriesRepository, CategoriesRepository>();
 builder.Services.AddTransient<IOptionsRepository, OptionsRepository>();
-builder.Services.AddTransient<IQuestionsRepositorycs, QuestionsRepository>();
+builder.Services.AddTransient<IQuestionsRepository, QuestionsRepository>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 //REGISTRAR VALIDATIONS
 builder.Services.AddFluentValidation(

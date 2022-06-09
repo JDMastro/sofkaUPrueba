@@ -10,7 +10,7 @@ using SofkaUPrueba.Infrastructure.Persistence;
 namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220609010801_firts")]
+    [Migration("20220609033231_firts")]
     partial class firts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
