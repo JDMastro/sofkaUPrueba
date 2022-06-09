@@ -1,4 +1,5 @@
 ﻿using SofkaUPrueba.Core.Entities;
+using SofkaUPrueba.Core.Exceptions;
 using SofkaUPrueba.Core.Interfaces;
 
 namespace SofkaUPrueba.Core.Services
@@ -11,10 +12,13 @@ namespace SofkaUPrueba.Core.Services
         public async Task AddPlayer(Players player)
         {
             var checkPlayer = await _unitOfWork.PlayersRepository.CheckUserNameOfPlayer(player.Username);
-            if (checkPlayer == null)
+            if (checkPlayer == null) { 
                 await _unitOfWork.PlayersRepository.AddPlayer(player);
-            else
-                throw new Exception("Username is already registered");
+                await _unitOfWork.SaveChangesAsync();
+            }
+            else { 
+                throw new BussineException("Username is already registered");
+            }
 
         }
     }

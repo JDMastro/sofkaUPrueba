@@ -13,8 +13,7 @@ namespace SofkaUPrueba.Infrastructure.Repositories
 
         public async Task AddPlayer(Players player)
         {
-            _entities.Players.Add(player);
-            await _entities.SaveChangesAsync();
+            await _entities.Players.AddAsync(player);
         }
 
         public async Task<Players> CheckUserNameOfPlayer(string username)

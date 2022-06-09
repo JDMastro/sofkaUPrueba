@@ -2,13 +2,14 @@ using FluentValidation.AspNetCore;
 using SofkaUPrueba.Core.Interfaces;
 using SofkaUPrueba.Core.Services;
 using SofkaUPrueba.Infrastructure;
+using SofkaUPrueba.Infrastructure.Filters;
 using SofkaUPrueba.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => { options.Filters.Add<GlobalExceptionFilter>(); });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
