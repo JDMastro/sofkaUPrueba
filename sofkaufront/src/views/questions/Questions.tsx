@@ -17,10 +17,10 @@ export function Questions({ expiryTimestamp, id, score, category, username, data
     const {
         seconds,
         restart,
-      } = useTimer({ expiryTimestamp, onExpire: async () =>{ await gameover({ category, score, id }); setStartGame(false)} });
-    
+    } = useTimer({ expiryTimestamp, onExpire: async () => { await gameover({ category, score, id }); setStartGame(false) } });
 
-    
+
+
 
     const isCorrect = async (isCorrect: any) => {
         if (category < 5) {
@@ -28,9 +28,9 @@ export function Questions({ expiryTimestamp, id, score, category, username, data
                 setFallopregunta('error')
                 setCorrectapregunta('warning')
                 setStartGame(false)
-                
+
                 await gameover({ category, score, id })
-             
+
             } else {
                 await nextquestion(data.score)
                 await HacerPregunta()
@@ -41,7 +41,7 @@ export function Questions({ expiryTimestamp, id, score, category, username, data
         } else {
             setStartGame(false)
             await gameover({ category, score, id })
-           
+
         }
     }
 
@@ -88,7 +88,22 @@ export function Questions({ expiryTimestamp, id, score, category, username, data
                         )) : ""
                     }
                 </Grid>
-               
+
+                <br />
+                <br />
+                <br />
+                <Grid item xs={6}>
+                    <ButtonUi
+                        disabled={false}
+                        text={`Salir del juego`}
+                        type="submit"
+                        variant="contained"
+                        onClick={async () => {
+                            await gameover({ category, score, id });
+                            setStartGame(false)
+                        }} />
+                </Grid>
+
             </Box>
         </Box>
 
