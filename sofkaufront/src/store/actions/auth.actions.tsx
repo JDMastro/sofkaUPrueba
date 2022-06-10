@@ -1,5 +1,5 @@
 import * as types from "../actionsType/auth.actionstype";
-//import { UsersRequest } from "../../services/usersService";
+import { PlayersService } from "../../service/PlayersService";
 import { removeCookie, setCookieJson } from '../../utils/cookie';
 
 export const authInitAction = () => ({
@@ -28,14 +28,14 @@ export const logoutErrorAction = (payload: any) => ({
 export const authAction = (data: any) => async (dispatch: Function) => {
     dispatch(authInitAction());
     try {
-        //const response = await UsersRequest.login(data);
-       // const { accessToken, tokenType }: any = response;
-       // removeCookie('iv_at');
-       // setCookieJson('iv_at', { tokenType, accessToken });
-       // dispatch(authSuccessAction());
-       // window.location.replace('/dashboard');
+        const response = await PlayersService.Login(data);
+        const { accessToken, tokenType }: any = response;
+        removeCookie('iv_at');
+        setCookieJson('iv_at', { tokenType, accessToken });
+        dispatch(authSuccessAction());
+        window.location.replace('/dashboard');
     } catch (error:any) {
-        dispatch(authErrorAction(error.response.data.message));
+        dispatch(authErrorAction(error.response.data));
     }
 };
 

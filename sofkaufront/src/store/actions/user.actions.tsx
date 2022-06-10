@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as types from "../actionsType/user.actionstype";
-//import { UsersRequest } from "../../services/usersService";
+import { PlayersService } from "../../service/PlayersService";
 
 export const findWhereInitAction = () => ({
     type: types.FIND_WHERE_INIT,
@@ -17,10 +17,9 @@ export const findWhereErrorAction = (payload: any) => ({
 export const findWhereAction = (data: any) => async (dispatch: Function) => {
     dispatch(findWhereInitAction());
     try {
-        //let response = await UsersRequest.me({});
-        //response.permissions = ['users:view', 'users:edit', 'users:create'];
-        //dispatch(findWhereSuccessAction(response));
-    } catch (error) {
-        return dispatch(findWhereErrorAction(error));
+        let response = await PlayersService.Me();
+        dispatch(findWhereSuccessAction(response.data));
+    } catch (error:any) {
+        return dispatch(findWhereErrorAction(error.response.data));
     }
 };

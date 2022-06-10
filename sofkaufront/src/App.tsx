@@ -1,9 +1,10 @@
 import React from 'react';
+import { SignIn } from './views/loging'
 
 function App() {
   return (
     <div className="App">
-      hi sofka u
+      <SignIn />
     </div>
   );
 }
