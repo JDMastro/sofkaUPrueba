@@ -8,10 +8,10 @@ namespace SofkaUPrueba.Infrastructure.Validators
         public PlayersValidator()
         {
             RuleFor(Player => Player.Username)
-                .Length(3, 10);
+                .Length(1, 100);
 
             RuleFor(Player => Player.Password)
-                .Length(6, 10)
+                .Length(1, 100)
                 .NotNull();
         }
     }

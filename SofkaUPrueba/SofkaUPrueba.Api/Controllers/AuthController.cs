@@ -47,7 +47,8 @@ namespace SofkaUPrueba.Api.Controllers
             if (validations.Item1)
             {
                 var token = GenerateToken(validations.Item2);
-                return Ok(new { access_token = token });
+                
+                return Ok(new { accessToken = token, tokenType = "Bearer" });
             }
             return NotFound("Credenciales invalidas");
         }
@@ -56,8 +57,11 @@ namespace SofkaUPrueba.Api.Controllers
         {
             var player = _mapper.Map<Players>(loginDto);
             var playerResult = await _playersService.Login(player);
-            var isValid = _passwordService.Check(playerResult.Password, loginDto.Password);
+            var isValid = false;
 
+            if(playerResult != null)
+                 isValid = _passwordService.Check(playerResult.Password, loginDto.Password);
+           
 
             return (isValid, playerResult);
         }

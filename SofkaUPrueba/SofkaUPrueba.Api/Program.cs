@@ -11,6 +11,7 @@ using SofkaUPrueba.Infrastructure.Repositories;
 using System.Text;
 using SofkaUPrueba.Infrastructure.Services;
 using SofkaUPrueba.Infrastructure.Interfaces;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,8 @@ string Micors = "Micors";
 
 // Add services to the container.
 
-builder.Services.AddControllers(options => { options.Filters.Add<GlobalExceptionFilter>(); });
+builder.Services.AddControllers(options => { options.Filters.Add<GlobalExceptionFilter>(); }).AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -64,6 +66,7 @@ builder.Services.AddTransient<IPlayersService, PlayersService>();
 builder.Services.AddTransient<IPlayersRepository, PlayersRepository>();
 builder.Services.AddTransient<ICategoriesRepository, CategoriesRepository>();
 builder.Services.AddTransient<IOptionsRepository, OptionsRepository>();
+builder.Services.AddTransient<IQuestionsService, QuestionsService>();
 builder.Services.AddTransient<IQuestionsRepository, QuestionsRepository>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
@@ -87,11 +90,29 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Authentication:SecretKey"]))
     };
 
+    options.Events = new JwtBearerEvents
+    {
+       
+        /*OnChallenge = async (context) =>
+        {
+            context.HandleResponse();
+
+            if (context.AuthenticateFailure != null)
+            {
+                context.Response.StatusCode = 401;
+                await context.HttpContext.Response.WriteAsync("Token Validation Has Failed. Request Access Denied");
+            }
+        }*/
+    };
 });
 
 //CONFIGUANDO CORS
 builder.Services.AddCors(options => {
-    options.AddPolicy(name: Micors, builder => { builder.WithOrigins("*"); });
+    options.AddPolicy(name: Micors, builder => { 
+        builder.AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials(); });
 });
 
 

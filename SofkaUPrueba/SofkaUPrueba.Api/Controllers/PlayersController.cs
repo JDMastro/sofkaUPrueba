@@ -7,9 +7,10 @@ using SofkaUPrueba.Core.Interfaces;
 
 namespace SofkaUPrueba.Api.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PlayersController : Controller
     {
         private readonly IMapper _mapper;
@@ -28,7 +29,11 @@ namespace SofkaUPrueba.Api.Controllers
             var player = await _playersService.CheckMe(Int32.Parse(id.Value));
             var playerDto = _mapper.Map<PlayersDto>(player);
             var response = new ApiResponse<PlayersDto>(playerDto);
-            return Ok(response);
+
+            if (response != null)
+                return Ok(response);
+            else
+                return Unauthorized("No tienes autorizacion");
         }
     }
 }

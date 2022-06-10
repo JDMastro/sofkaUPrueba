@@ -16,11 +16,12 @@ namespace SofkaUPrueba.Infrastructure.Filters
                 {
                     Status = 400,
                     Title = "Bad request",
-                    Detail = exception.Message
+                    Detail = exception.Message,
+                    //Entity = exception.
                 };
                 var json = new
                 {
-                    errors = new[] { validation }
+                    errors = new { validation }
                 };
                 context.Result = new BadRequestObjectResult(json);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
