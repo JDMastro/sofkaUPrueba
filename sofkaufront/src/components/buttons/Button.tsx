@@ -8,10 +8,11 @@ interface buttonProps{
     type : 'submit' | 'reset' | 'button';
     disabled: boolean,
     text: string,
-    onClick?: () => void
+    onClick?: () => void,
+    color?: 'inherit'| 'primary'| 'secondary'| 'success'| 'error'| 'info'| 'warning'
 }
 
-export function ButtonUi({ variant, disabled = false, onClick, text, type, Icon, fullWidth = false }: buttonProps) {
+export function ButtonUi({ color, variant, disabled = false, onClick, text, type, Icon, fullWidth = false }: buttonProps) {
     return (
         <Button
             fullWidth={fullWidth}
@@ -19,6 +20,7 @@ export function ButtonUi({ variant, disabled = false, onClick, text, type, Icon,
             startIcon={Icon}
             onClick={onClick}
             disabled={disabled}
+            color={color}
             type={type}
         >
             {text}
