@@ -10,6 +10,7 @@ namespace SofkaUPrueba.Infrastructure.Repositories
         private readonly ICategoriesRepository _categoriesRepository;
         private readonly IOptionsRepository _optionsRepository;
         private readonly IQuestionsRepository _questionsRepository;
+        private readonly IHistoryRepository _historyRepository;
         public UnitOfWork(AppDbContext context)
         {
             _entities = context;
@@ -23,6 +24,8 @@ namespace SofkaUPrueba.Infrastructure.Repositories
         public IOptionsRepository OptionsRepository => _optionsRepository ?? new OptionsRepository(_entities);
 
         public IQuestionsRepository QuestionsRepository => _questionsRepository ?? new QuestionsRepository(_entities);
+
+        public IHistoryRepository HistoryRepository => _historyRepository ?? new HistoryRepository(_entities);
 
         public void Dispose()
         {

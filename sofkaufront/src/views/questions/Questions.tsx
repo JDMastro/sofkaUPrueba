@@ -6,16 +6,21 @@ import Typography from '@mui/material/Typography';
 import { ButtonUi } from '../../components/buttons';
 
 import useUser from "../../hooks/useUser";
-//import { useSnackbar } from 'notistack';
+import { useTimer } from 'react-timer-hook';
 
-export function Questions({ score, category, username, data, setStartGame, HacerPregunta }: any) {
+export function Questions({ expiryTimestamp, id, score, category, username, data, setStartGame, HacerPregunta }: any) {
 
-    // const[fallopregunta, setFallopregunta] = React.useState('error');
-    // const[correctapregunta, setCorrectapregunta] = React.useState('success');
     const [fallopregunta, setFallopregunta] = React.useState<any>('primary');
     const [correctapregunta, setCorrectapregunta] = React.useState<any>('primary');
     const { gameover, nextquestion } = useUser()
-    //const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+    const {
+        seconds,
+        restart,
+      } = useTimer({ expiryTimestamp, onExpire: async () =>{ await gameover({ category, score, id }); setStartGame(false)} });
+    
+
+    
 
     const isCorrect = async (isCorrect: any) => {
         if (category < 5) {
@@ -24,27 +29,20 @@ export function Questions({ score, category, username, data, setStartGame, Hacer
                 setCorrectapregunta('warning')
                 setStartGame(false)
                 
-                await gameover({ category, score })
+                await gameover({ category, score, id })
              
             } else {
-                //setStartGame(false)
                 await nextquestion(data.score)
                 await HacerPregunta()
+                const time = new Date();
+                time.setSeconds(time.getSeconds() + 30);
+                restart(time)
             }
         } else {
             setStartGame(false)
-            await gameover({ category, score })
-            /*enqueueSnackbar("has completado el juego", {
-                variant: 'success',
-                anchorOrigin: {
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                }
-            });*/
+            await gameover({ category, score, id })
+           
         }
-
-
-
     }
 
     return (
@@ -55,6 +53,10 @@ export function Questions({ score, category, username, data, setStartGame, Hacer
 
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         {`${username} Ronda : ${category}`}
+                    </Typography>
+                    <Typography variant="h6" component="div">
+                        {`Temporizador : ${seconds}`}
+
                     </Typography>
                     <Typography variant="h6" component="div">
                         {`Puntaje : ${score}`}
@@ -86,12 +88,7 @@ export function Questions({ score, category, username, data, setStartGame, Hacer
                         )) : ""
                     }
                 </Grid>
-                {/*<ButtonUi  
-                        disabled={disable} 
-                        text="Empezar juego" 
-                        type="submit" 
-                        variant="contained"
-    onClick={()=> HacerPregunta () } />*/}
+               
             </Box>
         </Box>
 

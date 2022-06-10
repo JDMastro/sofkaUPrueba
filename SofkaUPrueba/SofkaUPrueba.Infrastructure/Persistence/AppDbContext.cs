@@ -13,6 +13,7 @@ namespace SofkaUPrueba.Infrastructure.Persistence
         public DbSet<Categories> Categories { get; set; }
         public DbSet<OptionsQuestions> Options { get; set; }
         public DbSet<Questions> Questions { get; set; }
+        public DbSet<History> History { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

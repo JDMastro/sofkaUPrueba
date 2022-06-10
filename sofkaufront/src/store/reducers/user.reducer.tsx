@@ -6,7 +6,8 @@ export const initialState = {
     loading: true,
     error: null,
     score: 0,
-    category: 1
+    category: 1,
+    history : null
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -19,6 +20,12 @@ export default function reducer(state = initialState, action: any = {}) {
                score : state.score += action.payload,
                category : state.category+=1
             })
+
+        case types.HISTORY:
+            return {
+                ...state,
+                history : action.payload
+            }
             
 
         case types.GAME_OVER:

@@ -10,7 +10,7 @@ using SofkaUPrueba.Infrastructure.Persistence;
 namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220609172100_firts")]
+    [Migration("20220610142425_firts")]
     partial class firts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,23 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                             Difficulty = "5",
                             Name = "EXPERTO"
                         });
+                });
+
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.History", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("History");
                 });
 
             modelBuilder.Entity("SofkaUPrueba.Core.Entities.OptionsQuestions", b =>

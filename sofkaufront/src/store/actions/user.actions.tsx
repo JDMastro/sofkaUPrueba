@@ -1,6 +1,7 @@
 /* eslint-disable */
 import * as types from "../actionsType/user.actionstype";
 import { PlayersService } from "../../service/PlayersService";
+import { HistoryService } from "../../service/HistoryService";
 
 export const findWhereInitAction = () => ({
     type: types.FIND_WHERE_INIT,
@@ -23,6 +24,11 @@ export const nextQuestion = (payload: any) => ({
     payload
 })
 
+export const history= (payload: any) => ({
+    type: types.HISTORY,
+    payload
+})
+
 export const findWhereAction = (data: any) => async (dispatch: Function) => {
     dispatch(findWhereInitAction());
     try {
@@ -36,17 +42,10 @@ export const findWhereAction = (data: any) => async (dispatch: Function) => {
 export const GameOver = (data: any) => async (dispatch: Function) => {
     console.log(data)
     dispatch(gameOver());
+    const res = await HistoryService.Login({ score : data.score, playerId : data.id })
+    dispatch(history(res.data))
 };
 
 export const NextQuestion = (data: any) => async (dispatch: Function) => {
-    //category: 1, score: 0, questionScore: 2
-   
-
-        dispatch(nextQuestion(data))
-   
-
-    /*dispatch(nextQuestion({
-        category : data.category + 1,
-        score : data.score + data.questionScore
-    }))*/
+    dispatch(nextQuestion(data))
 };

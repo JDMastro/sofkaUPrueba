@@ -7,6 +7,8 @@
         IOptionsRepository OptionsRepository { get; }
         IQuestionsRepository QuestionsRepository { get; }
 
+        IHistoryRepository HistoryRepository { get; }
+
         void SaveChanges();
         Task SaveChangesAsync();
     }

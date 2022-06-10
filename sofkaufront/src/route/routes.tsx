@@ -4,6 +4,7 @@ import App from '../App'
 import { ProtectedRoute } from '../components/privateroute'
 import { Register } from '../views/register'
 import { Dashboard } from '../views/dashboard'
+import { History } from "../views/history";
 
 export const Rutas = () => {
     return (
@@ -12,7 +13,16 @@ export const Rutas = () => {
                 <Route path='/' element={<App />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                <Route path='/history' element={<History />} />
             </Routes>
         </BrowserRouter>
+    )
+}
+
+export const RutasInernas = () => {
+    return (
+            <Routes>
+
+            </Routes>
     )
 }

@@ -68,6 +68,8 @@ builder.Services.AddTransient<ICategoriesRepository, CategoriesRepository>();
 builder.Services.AddTransient<IOptionsRepository, OptionsRepository>();
 builder.Services.AddTransient<IQuestionsService, QuestionsService>();
 builder.Services.AddTransient<IQuestionsRepository, QuestionsRepository>();
+builder.Services.AddTransient<IHistoryRepository, HistoryRepository>();
+builder.Services.AddTransient<IHistoryService, HistoryService>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddSingleton<IPasswordService, PasswordService>();
@@ -117,10 +119,10 @@ builder.Services.AddCors(options => {
 
 
 //REGISTRAR VALIDATIONS
-builder.Services.AddFluentValidation(
+/*builder.Services.AddFluentValidation(
     options => {
     options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
-    });
+    });*/
 
 
 var app = builder.Build();

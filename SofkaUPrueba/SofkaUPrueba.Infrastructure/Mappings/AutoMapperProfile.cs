@@ -10,6 +10,7 @@ namespace SofkaUPrueba.Infrastructure.Mappings
         {
             CreateMap<Players, PlayersDto>().ReverseMap();
             CreateMap<Players, LoginDto>().ReverseMap();
+            CreateMap<History, HistoryDto>().ReverseMap();
 
             // CreateMap<PlayersDto, Players>();
 

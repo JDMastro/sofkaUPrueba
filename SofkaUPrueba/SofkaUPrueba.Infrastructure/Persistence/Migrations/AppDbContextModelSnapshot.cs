@@ -69,6 +69,23 @@ namespace SofkaUPrueba.Infrastructure.Persistence.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SofkaUPrueba.Core.Entities.History", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("History");
+                });
+
             modelBuilder.Entity("SofkaUPrueba.Core.Entities.OptionsQuestions", b =>
                 {
                     b.Property<int>("Id")
