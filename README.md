@@ -3,7 +3,7 @@
 Este proyecto esta hecho con .net 6 para backend, react en su version 18.1.0 y base de datos Mysql
 
 Carpetas
-* sql => contiene el back de la bd
+* sql => contiene el backup de la bd
 * sofkaufront => contiene el codigo fuente del frontend
 * Sofkau => contiene el backend listo para configurarlo en el IIS
 * SofkaUPrueba => contiene el codigo fuente del backend
