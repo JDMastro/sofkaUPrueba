@@ -15,7 +15,7 @@ Requisitos
 * Tener instalado el runtime de .Net core https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-6.0.5-windows-hosting-bundle-installer
 
 Configuración del proyecto
-1) Primero se debe crear un base de datos que se va llamar sofkau, el back up esta en la carpeta llamada sql,
+1) Primero se debe crear una base de datos que se va llamar sofkau, el back up esta en la carpeta llamada sql,
 2) Nos dirigimos a la carpeta Sofkau, ya dentro de esa carpeta buscaremos un archivo llamado appsettings.json, en este archivo se puede cambiar las credenciales de la BD
 3) Una vez cambiada las credenciales de la base de datos, cogemos la carpeta Sofkau y se lleva a una carpeta llamada inetpub, que por lo general esta en el disco C: del 
    computador, dentro de esa carpeta se selecciona la carpeta wwwroot y dentro de esa carpeta colocamos la carpeta Sofkau.
