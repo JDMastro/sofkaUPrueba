@@ -15,7 +15,20 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-string Micors = "Micors";
+//string Micors = "Micors";
+
+//cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllOrigins",
+        builder =>
+        {
+            builder.AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials();
+        });
+});
 
 // Add services to the container.
 
@@ -91,41 +104,12 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["Authentication:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Authentication:SecretKey"]))
     };
-
-    options.Events = new JwtBearerEvents
-    {
-       
-        /*OnChallenge = async (context) =>
-        {
-            context.HandleResponse();
-
-            if (context.AuthenticateFailure != null)
-            {
-                context.Response.StatusCode = 401;
-                await context.HttpContext.Response.WriteAsync("Token Validation Has Failed. Request Access Denied");
-            }
-        }*/
-    };
 });
-
-//CONFIGUANDO CORS
-builder.Services.AddCors(options => {
-    options.AddPolicy(name: Micors, builder => { 
-        builder.AllowAnyMethod()
-                .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true) // allow any origin
-                .AllowCredentials(); });
-});
-
-
-//REGISTRAR VALIDATIONS
-/*builder.Services.AddFluentValidation(
-    options => {
-    options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
-    });*/
 
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -134,7 +118,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(Micors);
+app.UseCors("AllOrigins");
+
 
 app.UseAuthentication();
 

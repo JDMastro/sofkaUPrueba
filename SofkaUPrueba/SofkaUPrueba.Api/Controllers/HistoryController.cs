@@ -10,7 +10,6 @@ namespace SofkaUPrueba.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
     public class HistoryController : Controller
     {
         private readonly IMapper _mapper;
